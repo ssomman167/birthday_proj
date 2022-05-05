@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react'
+import data from './data'
+import styled from 'styled-components'
+import "./App.css"
+import Birth from './Birth'
 function App() {
+ const [arr,setArr]=useState(data)
+  const clearit=()=>{
+   setArr([])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   
+    <>
+    <h1 style={{textAlign:'center',color:'blueviolet'}}>{arr.length} birthdays are there today</h1>
+    <Birth data={arr}/>
+    <div style={{textAlign:'center',color:'blueviolet',fontWeight:'bolder',padding:'10px'}} onClick={clearit}>CLEAR ALL</div>
+    </>
+  )
 }
 
-export default App;
+
+
+export default App
